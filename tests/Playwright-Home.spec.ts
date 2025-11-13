@@ -20,7 +20,7 @@ await page.getByRole('link', { name: 'API' }).click();
 await expect(page.getByRole('heading', { name: 'Playwright Library' })).toBeVisible();
 }); 
 
-//Work with dropdown men
+//Work with dropdown menu
 test(   'Select Python in the menu', async ({ page }) => {
 await   page.getByRole('button', { name: 'Node.js' }).hover ()  ;  
 await page.getByLabel('Main', { exact: true }).getByRole('link', { name: 'Python' }).click();
