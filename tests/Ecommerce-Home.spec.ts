@@ -20,7 +20,6 @@ test('Verify search functionality', async ({ page }) => {
 });
    
 test('Verify navigation to API reference', async ({ page }) => {    
-    await page.getByRole('link', { name: 'API Reference' }).click();
-    await expect(page).toHaveURL(/.*api/);  
-            
+    await page.getByRole('link', { name: 'API', exact: true }).click();
+    await expect(page).toHaveURL(/.*api/);      
 });
