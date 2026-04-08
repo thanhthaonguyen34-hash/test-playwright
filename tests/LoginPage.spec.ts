@@ -1,11 +1,20 @@
-import { test, expect, chromium } from '@playwright/test';
-const LoginPage= require("../pages/LoginPage");
-//https://www.youtube.com/watch?v=4aiu6pRE0YQ&list=PL6flErFppaj0iQG2_Dd72Jz0bfrzZwMZH
+import { test, expect } from '@playwright/test';
+import { LoginPage } from './pages/LoginPage';
+
+let loginPage: LoginPage;
+
 test.beforeEach(async ({ page }) => {
-   const loginPage = new LoginPage(page);  
-    await loginPage.LoginToGitHub();  
+  loginPage = new LoginPage(page);
+  await loginPage.goto();
 });
 
-test('Verify successful login', async ({ page }) => {
-    await expect(page.getByRole('link', { name: 'your-username' })).toBeVisible();
+test('Verify successful login with standard user', async ({ page }) => {
+  await loginPage.loginStandardUser();
+  await expect(page).toHaveURL(/.*inventory.html/);
+  await expect(page.locator('.title')).toHaveText('Products');
+});
+
+test('Verify locked out user shows error', async ({ page }) => {
+  await loginPage.loginLockedOutUser();
+  await loginPage.expectErrorMessage(/locked out/i);
 });     
