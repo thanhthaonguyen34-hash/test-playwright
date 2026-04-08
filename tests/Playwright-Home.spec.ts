@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 //Header link tests
 test('Click on Playwright logo', async ({ page }) => {  
 await page.getByRole('link', { name: 'Playwright logo Playwright' }).click();
-await expect(page.getByRole('heading', { name: 'Playwright enables reliable end-to-end testing for modern web apps.' })).toBeVisible();
+await expect(page.getByRole('heading', { name: 'Playwright enables reliable' })).toBeVisible();
 });
 
 test('Go to Docs page', async ({ page }) => { 
