@@ -120,7 +120,7 @@ await newPage.waitForLoadState  ();
 newPage.close();
 });
 
-test('Click on 78K button', async ({ browser }) => { 
+test('Click on likes button', async ({ browser }) => { 
      const context = await browser.newContext()
  const page = await context.newPage();
 await page.goto('https://playwright.dev/');
