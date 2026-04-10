@@ -7,7 +7,7 @@ let loginPage: LoginPage;
 let productsPage: ProductsPage;
 let checkoutPage: CheckoutPage;
 
-test.describe('Checkout Process', () => {
+test.describe('Checkout Process.', () => {
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
     productsPage = new ProductsPage(page);
